@@ -1,44 +1,46 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
+    <meta charset='utf-8'>
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>chef-monit by phlipper</title>
 
-    <link rel="stylesheet" href="stylesheets/styles.css">
-    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
-    <script src="javascripts/scale.fix.js"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
 
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
+    <title>chef-monit by Glassdoor</title>
   </head>
+
   <body>
-    <div class="wrapper">
-      <header>
+
+    <header>
+      <div class="container">
         <h1>chef-monit</h1>
-        <p>Chef cookbook for monit package</p>
-        <p class="view"><a href="https://github.com/phlipper/chef-monit">View the Project on GitHub <small>phlipper/chef-monit</small></a></p>
-        <ul>
-          <li><a href="https://github.com/phlipper/chef-monit/zipball/master">Download <strong>ZIP File</strong></a></li>
-          <li><a href="https://github.com/phlipper/chef-monit/tarball/master">Download <strong>TAR Ball</strong></a></li>
-          <li><a href="https://github.com/phlipper/chef-monit">View On <strong>GitHub</strong></a></li>
-        </ul>
-      </header>
-      <section>
-        <p><a href="http://travis-ci.org/phlipper/chef-monit"><img src="http://img.shields.io/travis-ci/phlipper/chef-monit.png" alt="Build Status"></a></p>
+        <h2>Chef cookbook for monit package</h2>
+
+        <section id="downloads">
+          <a href="https://github.com/Glassdoor/chef-monit/zipball/master" class="btn">Download as .zip</a>
+          <a href="https://github.com/Glassdoor/chef-monit/tarball/master" class="btn">Download as .tar.gz</a>
+          <a href="https://github.com/Glassdoor/chef-monit" class="btn btn-github"><span class="icon"></span>View on GitHub</a>
+        </section>
+      </div>
+    </header>
+
+    <div class="container">
+      <section id="main_content">
+        <h1>
+<a id="chef-monit" class="anchor" href="#chef-monit" aria-hidden="true"><span class="octicon octicon-link"></span></a>chef-monit</h1>
 
 <h2>
-<a name="description" class="anchor" href="#description"><span class="octicon octicon-link"></span></a>Description</h2>
+<a id="description" class="anchor" href="#description" aria-hidden="true"><span class="octicon octicon-link"></span></a>Description</h2>
 
 <p>Installs the <code>monit</code> package from (<a href="http://mmonit.com/monit/">http://mmonit.com/monit/</a>).</p>
 
 <h2>
-<a name="requirements" class="anchor" href="#requirements"><span class="octicon octicon-link"></span></a>Requirements</h2>
+<a id="requirements" class="anchor" href="#requirements" aria-hidden="true"><span class="octicon octicon-link"></span></a>Requirements</h2>
 
 <h3>
-<a name="supported-platforms" class="anchor" href="#supported-platforms"><span class="octicon octicon-link"></span></a>Supported Platforms</h3>
+<a id="supported-platforms" class="anchor" href="#supported-platforms" aria-hidden="true"><span class="octicon octicon-link"></span></a>Supported Platforms</h3>
 
 <p>The following platforms are supported by this cookbook, meaning that the recipes run on these platforms without error:</p>
 
@@ -51,128 +53,130 @@
 <li>Fedora</li>
 <li>SUSE</li>
 <li>Amazon</li>
-</ul><h2>
-<a name="recipes" class="anchor" href="#recipes"><span class="octicon octicon-link"></span></a>Recipes</h2>
+</ul>
+
+<h2>
+<a id="recipes" class="anchor" href="#recipes" aria-hidden="true"><span class="octicon octicon-link"></span></a>Recipes</h2>
 
 <ul>
 <li>
 <code>monit</code> - The default recipe. Sets up the service definition and default checks.</li>
-</ul><h2>
-<a name="resources" class="anchor" href="#resources"><span class="octicon octicon-link"></span></a>Resources</h2>
+</ul>
+
+<h2>
+<a id="resources" class="anchor" href="#resources" aria-hidden="true"><span class="octicon octicon-link"></span></a>Resources</h2>
 
 <h3>
-<a name="monit_monitrc" class="anchor" href="#monit_monitrc"><span class="octicon octicon-link"></span></a><code>monit_monitrc</code>
+<a id="monit_monitrc" class="anchor" href="#monit_monitrc" aria-hidden="true"><span class="octicon octicon-link"></span></a><code>monit_monitrc</code>
 </h3>
 
 <p>The following will create a monitrc configuration:</p>
 
-<div class="highlight highlight-ruby"><pre><span class="n">monit_monitrc</span> <span class="s2">"ssh"</span> <span class="k">do</span>
-  <span class="n">variables</span><span class="p">({</span> <span class="ss">category</span><span class="p">:</span> <span class="s2">"system"</span> <span class="p">})</span>
-<span class="k">end</span>
-</pre></div>
+<div class="highlight highlight-ruby"><pre>monit_monitrc <span class="pl-s"><span class="pl-pds">"</span>ssh<span class="pl-pds">"</span></span> <span class="pl-k">do</span>
+  variables({ <span class="pl-c1">category:</span> <span class="pl-s"><span class="pl-pds">"</span>system<span class="pl-pds">"</span></span> })
+<span class="pl-k">end</span></pre></div>
 
 <p>The <code>name</code> parameter must match a file located in your templates directory. In the example above, this would be <code>ssh.monitrc.erb</code>.</p>
 
 <p>The <code>variables</code> option within the block is optional, and can contain a list of key-value pairs to assign within your template.</p>
 
 <h2>
-<a name="usage" class="anchor" href="#usage"><span class="octicon octicon-link"></span></a>Usage</h2>
+<a id="usage" class="anchor" href="#usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage</h2>
 
 <p>This cookbook installs the monit components if not present, and pulls updates if they are installed on the system.</p>
 
 <h2>
-<a name="attributes" class="anchor" href="#attributes"><span class="octicon octicon-link"></span></a>Attributes</h2>
+<a id="attributes" class="anchor" href="#attributes" aria-hidden="true"><span class="octicon octicon-link"></span></a>Attributes</h2>
 
-<div class="highlight highlight-ruby"><pre><span class="c1"># Delay the start of polling when the service is started</span>
-<span class="n">default</span><span class="o">[</span><span class="s2">"monit"</span><span class="o">][</span><span class="s2">"start_delay"</span><span class="o">]</span> <span class="o">=</span> <span class="mi">0</span>
+<div class="highlight highlight-ruby"><pre><span class="pl-c"># Delay the start of polling when the service is started</span>
+default[<span class="pl-s"><span class="pl-pds">"</span>monit<span class="pl-pds">"</span></span>][<span class="pl-s"><span class="pl-pds">"</span>start_delay<span class="pl-pds">"</span></span>] <span class="pl-k">=</span> <span class="pl-c1">0</span>
 
-<span class="c1"># How frequently the monit daemon polls for changes.</span>
-<span class="n">default</span><span class="o">[</span><span class="s2">"monit"</span><span class="o">][</span><span class="s2">"polling_frequency"</span><span class="o">]</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="pl-c"># How frequently the monit daemon polls for changes.</span>
+default[<span class="pl-s"><span class="pl-pds">"</span>monit<span class="pl-pds">"</span></span>][<span class="pl-s"><span class="pl-pds">"</span>polling_frequency<span class="pl-pds">"</span></span>] <span class="pl-k">=</span> <span class="pl-c1">20</span>
 
-<span class="c1"># Use syslog for logging instead of a logfile.</span>
-<span class="n">default</span><span class="o">[</span><span class="s2">"monit"</span><span class="o">][</span><span class="s2">"use_syslog"</span><span class="o">]</span> <span class="o">=</span> <span class="kp">true</span>
+<span class="pl-c"># Use syslog for logging instead of a logfile.</span>
+default[<span class="pl-s"><span class="pl-pds">"</span>monit<span class="pl-pds">"</span></span>][<span class="pl-s"><span class="pl-pds">"</span>use_syslog<span class="pl-pds">"</span></span>] <span class="pl-k">=</span> <span class="pl-c1">true</span>
 
-<span class="c1"># If not using syslog, the log file that monit will use.</span>
-<span class="n">default</span><span class="o">[</span><span class="s2">"monit"</span><span class="o">][</span><span class="s2">"logfile"</span><span class="o">]</span> <span class="o">=</span> <span class="s2">"/var/log/monit.log"</span>
+<span class="pl-c"># If not using syslog, the log file that monit will use.</span>
+default[<span class="pl-s"><span class="pl-pds">"</span>monit<span class="pl-pds">"</span></span>][<span class="pl-s"><span class="pl-pds">"</span>logfile<span class="pl-pds">"</span></span>] <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>/var/log/monit.log<span class="pl-pds">"</span></span>
 
-<span class="c1"># Where Monit stores unique Monit instance id</span>
-<span class="n">default</span><span class="o">[</span><span class="s2">"monit"</span><span class="o">][</span><span class="s2">"idfile"</span><span class="o">]</span> <span class="o">=</span> <span class="s2">"/var/.monit.id"</span>
+<span class="pl-c"># Where Monit stores unique Monit instance id</span>
+default[<span class="pl-s"><span class="pl-pds">"</span>monit<span class="pl-pds">"</span></span>][<span class="pl-s"><span class="pl-pds">"</span>idfile<span class="pl-pds">"</span></span>] <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>/var/.monit.id<span class="pl-pds">"</span></span>
 
-<span class="c1"># Where Monit stores Monit state file</span>
-<span class="n">default</span><span class="o">[</span><span class="s2">"monit"</span><span class="o">][</span><span class="s2">"statefile"</span><span class="o">]</span> <span class="o">=</span> <span class="s2">"/var/lib/monit/state"</span>
+<span class="pl-c"># Where Monit stores Monit state file</span>
+default[<span class="pl-s"><span class="pl-pds">"</span>monit<span class="pl-pds">"</span></span>][<span class="pl-s"><span class="pl-pds">"</span>statefile<span class="pl-pds">"</span></span>] <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>/var/lib/monit/state<span class="pl-pds">"</span></span>
 
-<span class="c1"># Enable emails for internal monit alerts</span>
-<span class="n">default</span><span class="o">[</span><span class="s2">"monit"</span><span class="o">][</span><span class="s2">"mail_alerts"</span><span class="o">]</span> <span class="o">=</span> <span class="kp">true</span>
+<span class="pl-c"># Enable emails for internal monit alerts</span>
+default[<span class="pl-s"><span class="pl-pds">"</span>monit<span class="pl-pds">"</span></span>][<span class="pl-s"><span class="pl-pds">"</span>mail_alerts<span class="pl-pds">"</span></span>] <span class="pl-k">=</span> <span class="pl-c1">true</span>
 
-<span class="c1"># Ignore alerts for specific events</span>
-<span class="c1"># Possible events include: action, checksum, connection, content, data, exec, fsflags, gid, icmp, instance, invalid, nonexist, permission, pid, ppid, resource, size, status, timeout, timestamp, uid, uptime.</span>
-<span class="n">default</span><span class="o">[</span><span class="s2">"monit"</span><span class="o">][</span><span class="s2">"alert_ignore_events"</span><span class="o">]</span> <span class="o">=</span> <span class="o">[]</span>
+<span class="pl-c"># Ignore alerts for specific events</span>
+<span class="pl-c"># Possible events include: action, checksum, connection, content, data, exec, fsflags, gid, icmp, instance, invalid, nonexist, permission, pid, ppid, resource, size, status, timeout, timestamp, uid, uptime.</span>
+default[<span class="pl-s"><span class="pl-pds">"</span>monit<span class="pl-pds">"</span></span>][<span class="pl-s"><span class="pl-pds">"</span>alert_ignore_events<span class="pl-pds">"</span></span>] <span class="pl-k">=</span> []
 
-<span class="c1"># Email address that will be notified of events.</span>
-<span class="n">default</span><span class="o">[</span><span class="s2">"monit"</span><span class="o">][</span><span class="s2">"alert_email"</span><span class="o">]</span> <span class="o">=</span> <span class="s2">"root@localhost"</span>
+<span class="pl-c"># Email address that will be notified of events.</span>
+default[<span class="pl-s"><span class="pl-pds">"</span>monit<span class="pl-pds">"</span></span>][<span class="pl-s"><span class="pl-pds">"</span>alert_email<span class="pl-pds">"</span></span>] <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>root@localhost<span class="pl-pds">"</span></span>
 
-<span class="c1"># Enable the web interface and define credentials.</span>
-<span class="n">default</span><span class="o">[</span><span class="s2">"monit"</span><span class="o">][</span><span class="s2">"web_interface"</span><span class="o">]</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="ss">enable</span><span class="p">:</span>  <span class="kp">true</span><span class="p">,</span>
-  <span class="ss">port</span><span class="p">:</span>    <span class="mi">2812</span><span class="p">,</span>
-  <span class="ss">address</span><span class="p">:</span> <span class="s2">"localhost"</span><span class="p">,</span>
-  <span class="ss">allow</span><span class="p">:</span>   <span class="o">[</span><span class="s2">"localhost"</span><span class="p">,</span> <span class="s2">"admin:b1gbr0th3r"</span><span class="o">]</span>
-<span class="p">}</span>
+<span class="pl-c"># Enable the web interface and define credentials.</span>
+default[<span class="pl-s"><span class="pl-pds">"</span>monit<span class="pl-pds">"</span></span>][<span class="pl-s"><span class="pl-pds">"</span>web_interface<span class="pl-pds">"</span></span>] <span class="pl-k">=</span> {
+  <span class="pl-c1">enable:</span>  <span class="pl-c1">true</span>,
+  <span class="pl-c1">port:</span>    <span class="pl-c1">2812</span>,
+  <span class="pl-c1">address:</span> <span class="pl-s"><span class="pl-pds">"</span>localhost<span class="pl-pds">"</span></span>,
+  <span class="pl-c1">allow:</span>   [<span class="pl-s"><span class="pl-pds">"</span>localhost<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>admin:b1gbr0th3r<span class="pl-pds">"</span></span>]
+}
 
-<span class="c1"># Email settings that will be used for notification of events.</span>
-<span class="n">default</span><span class="o">[</span><span class="s2">"monit"</span><span class="o">][</span><span class="s2">"mail"</span><span class="o">]</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="ss">hostname</span><span class="p">:</span> <span class="s2">"localhost"</span><span class="p">,</span>
-  <span class="ss">port</span><span class="p">:</span>     <span class="mi">25</span><span class="p">,</span>
-  <span class="ss">username</span><span class="p">:</span> <span class="kp">nil</span><span class="p">,</span>
-  <span class="ss">password</span><span class="p">:</span> <span class="kp">nil</span><span class="p">,</span>
-  <span class="ss">encrypted_credentials</span><span class="p">:</span> <span class="kp">nil</span><span class="p">,</span>
-  <span class="ss">encrypted_credentials_data_bag</span><span class="p">:</span> <span class="s2">"credentials"</span><span class="p">,</span>
-  <span class="ss">from</span><span class="p">:</span>     <span class="s2">"monit@$HOST"</span><span class="p">,</span>
-  <span class="ss">subject</span><span class="p">:</span>  <span class="s2">"$SERVICE $EVENT at $DATE"</span><span class="p">,</span>
-  <span class="ss">message</span><span class="p">:</span>  <span class="s2">"Monit $ACTION $SERVICE at $DATE on $HOST,</span><span class="se">\n\n</span><span class="s2">$DESCRIPTION</span><span class="se">\n\n</span><span class="s2">Dutifully,</span><span class="se">\n</span><span class="s2">Monit"</span><span class="p">,</span>
-  <span class="ss">security</span><span class="p">:</span> <span class="kp">nil</span><span class="p">,</span>  <span class="c1"># 'SSLV2'|'SSLV3'|'TLSV1'</span>
-  <span class="ss">timeout</span><span class="p">:</span>  <span class="mi">30</span>
-<span class="p">}</span>
+<span class="pl-c"># Email settings that will be used for notification of events.</span>
+default[<span class="pl-s"><span class="pl-pds">"</span>monit<span class="pl-pds">"</span></span>][<span class="pl-s"><span class="pl-pds">"</span>mail<span class="pl-pds">"</span></span>] <span class="pl-k">=</span> {
+  <span class="pl-c1">hostname:</span> <span class="pl-s"><span class="pl-pds">"</span>localhost<span class="pl-pds">"</span></span>,
+  <span class="pl-c1">port:</span>     <span class="pl-c1">25</span>,
+  <span class="pl-c1">username:</span> <span class="pl-c1">nil</span>,
+  <span class="pl-c1">password:</span> <span class="pl-c1">nil</span>,
+  <span class="pl-c1">encrypted_credentials:</span> <span class="pl-c1">nil</span>,
+  <span class="pl-c1">encrypted_credentials_data_bag:</span> <span class="pl-s"><span class="pl-pds">"</span>credentials<span class="pl-pds">"</span></span>,
+  <span class="pl-c1">from:</span>     <span class="pl-s"><span class="pl-pds">"</span>monit@$HOST<span class="pl-pds">"</span></span>,
+  <span class="pl-c1">subject:</span>  <span class="pl-s"><span class="pl-pds">"</span>$SERVICE $EVENT at $DATE<span class="pl-pds">"</span></span>,
+  <span class="pl-c1">message:</span>  <span class="pl-s"><span class="pl-pds">"</span>Monit $ACTION $SERVICE at $DATE on $HOST,<span class="pl-cce">\n\n</span>$DESCRIPTION<span class="pl-cce">\n\n</span>Dutifully,<span class="pl-cce">\n</span>Monit<span class="pl-pds">"</span></span>,
+  <span class="pl-c1">security:</span> <span class="pl-c1">nil</span>,  <span class="pl-c"># 'SSLV2'|'SSLV3'|'TLSV1'</span>
+  <span class="pl-c1">timeout:</span>  <span class="pl-c1">30</span>
+}
 
-<span class="k">case</span> <span class="n">node</span><span class="o">[</span><span class="s2">"platform_family"</span><span class="o">]</span>
-<span class="k">when</span> <span class="s2">"rhel"</span><span class="p">,</span> <span class="s2">"fedora"</span><span class="p">,</span> <span class="s2">"suse"</span>
-  <span class="n">default</span><span class="o">[</span><span class="s2">"monit"</span><span class="o">][</span><span class="s2">"main_config_path"</span><span class="o">]</span> <span class="o">=</span> <span class="s2">"/etc/monit.conf"</span>
-  <span class="n">default</span><span class="o">[</span><span class="s2">"monit"</span><span class="o">][</span><span class="s2">"includes_dir"</span><span class="o">]</span> <span class="o">=</span> <span class="s2">"/etc/monit.d"</span>
-<span class="k">else</span>
-  <span class="n">default</span><span class="o">[</span><span class="s2">"monit"</span><span class="o">][</span><span class="s2">"main_config_path"</span><span class="o">]</span> <span class="o">=</span> <span class="s2">"/etc/monit/monitrc"</span>
-  <span class="n">default</span><span class="o">[</span><span class="s2">"monit"</span><span class="o">][</span><span class="s2">"includes_dir"</span><span class="o">]</span> <span class="o">=</span> <span class="s2">"/etc/monit/conf.d"</span>
-<span class="k">end</span>
+<span class="pl-k">case</span> node[<span class="pl-s"><span class="pl-pds">"</span>platform_family<span class="pl-pds">"</span></span>]
+<span class="pl-k">when</span> <span class="pl-s"><span class="pl-pds">"</span>rhel<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>fedora<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>suse<span class="pl-pds">"</span></span>
+  default[<span class="pl-s"><span class="pl-pds">"</span>monit<span class="pl-pds">"</span></span>][<span class="pl-s"><span class="pl-pds">"</span>main_config_path<span class="pl-pds">"</span></span>] <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>/etc/monit.conf<span class="pl-pds">"</span></span>
+  default[<span class="pl-s"><span class="pl-pds">"</span>monit<span class="pl-pds">"</span></span>][<span class="pl-s"><span class="pl-pds">"</span>includes_dir<span class="pl-pds">"</span></span>] <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>/etc/monit.d<span class="pl-pds">"</span></span>
+<span class="pl-k">else</span>
+  default[<span class="pl-s"><span class="pl-pds">"</span>monit<span class="pl-pds">"</span></span>][<span class="pl-s"><span class="pl-pds">"</span>main_config_path<span class="pl-pds">"</span></span>] <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>/etc/monit/monitrc<span class="pl-pds">"</span></span>
+  default[<span class="pl-s"><span class="pl-pds">"</span>monit<span class="pl-pds">"</span></span>][<span class="pl-s"><span class="pl-pds">"</span>includes_dir<span class="pl-pds">"</span></span>] <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>/etc/monit/conf.d<span class="pl-pds">"</span></span>
+<span class="pl-k">end</span>
 
-<span class="c1"># The monit::default recipe will load these monit_monitrc resources automatically</span>
-<span class="c1"># NOTE setting this attribute at the default level will append values to the array</span>
-<span class="n">default</span><span class="o">[</span><span class="s2">"monit"</span><span class="o">][</span><span class="s2">"default_monitrc_configs"</span><span class="o">]</span> <span class="o">=</span> <span class="sx">%w[load ssh]</span>
+<span class="pl-c"># The monit::default recipe will load these monit_monitrc resources automatically</span>
+<span class="pl-c"># NOTE setting this attribute at the default level will append values to the array</span>
+default[<span class="pl-s"><span class="pl-pds">"</span>monit<span class="pl-pds">"</span></span>][<span class="pl-s"><span class="pl-pds">"</span>default_monitrc_configs<span class="pl-pds">"</span></span>] <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">%w[</span>load ssh<span class="pl-pds">]</span></span>
 
-<span class="c1"># Whether the monit service should be reloaded when a configuration changes</span>
-<span class="n">default</span><span class="o">[</span><span class="s2">"monit"</span><span class="o">][</span><span class="s2">"reload_on_change"</span><span class="o">]</span> <span class="o">=</span> <span class="kp">true</span>
+<span class="pl-c"># Whether the monit service should be reloaded when a configuration changes</span>
+default[<span class="pl-s"><span class="pl-pds">"</span>monit<span class="pl-pds">"</span></span>][<span class="pl-s"><span class="pl-pds">"</span>reload_on_change<span class="pl-pds">"</span></span>] <span class="pl-k">=</span> <span class="pl-c1">true</span>
 
-<span class="c1"># `MONIT_OPTS` for /etc/default/monit</span>
-<span class="n">default</span><span class="o">[</span><span class="s2">"monit"</span><span class="o">][</span><span class="s2">"init_opts"</span><span class="o">]</span> <span class="o">=</span> <span class="s2">""</span>
+<span class="pl-c"># `MONIT_OPTS` for /etc/default/monit</span>
+default[<span class="pl-s"><span class="pl-pds">"</span>monit<span class="pl-pds">"</span></span>][<span class="pl-s"><span class="pl-pds">"</span>init_opts<span class="pl-pds">"</span></span>] <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span><span class="pl-pds">"</span></span>
 
-<span class="c1"># specify a particular version of the monit package you want installed,</span>
-<span class="c1"># otherwise it will install the default. this value is ignored when performing a</span>
-<span class="c1"># source install.</span>
-<span class="n">default</span><span class="o">[</span><span class="s2">"monit"</span><span class="o">][</span><span class="s2">"version"</span><span class="o">]</span> <span class="o">=</span> <span class="kp">nil</span>
+<span class="pl-c"># specify a particular version of the monit package you want installed,</span>
+<span class="pl-c"># otherwise it will install the default. this value is ignored when performing a</span>
+<span class="pl-c"># source install.</span>
+default[<span class="pl-s"><span class="pl-pds">"</span>monit<span class="pl-pds">"</span></span>][<span class="pl-s"><span class="pl-pds">"</span>version<span class="pl-pds">"</span></span>] <span class="pl-k">=</span> <span class="pl-c1">nil</span>
 
-<span class="c1"># source install specifics</span>
-<span class="n">default</span><span class="o">[</span><span class="s2">"monit"</span><span class="o">][</span><span class="s2">"source_install"</span><span class="o">]</span> <span class="o">=</span> <span class="kp">false</span>
+<span class="pl-c"># source install specifics</span>
+default[<span class="pl-s"><span class="pl-pds">"</span>monit<span class="pl-pds">"</span></span>][<span class="pl-s"><span class="pl-pds">"</span>source_install<span class="pl-pds">"</span></span>] <span class="pl-k">=</span> <span class="pl-c1">false</span>
 
-<span class="n">default</span><span class="o">[</span><span class="s2">"monit"</span><span class="o">][</span><span class="s2">"source"</span><span class="o">][</span><span class="s2">"version"</span><span class="o">]</span> <span class="o">=</span> <span class="s2">"5.7"</span>
-<span class="n">default</span><span class="o">[</span><span class="s2">"monit"</span><span class="o">][</span><span class="s2">"source"</span><span class="o">][</span><span class="s2">"prefix"</span><span class="o">]</span> <span class="o">=</span> <span class="s2">"/usr/local"</span>
-<span class="n">default</span><span class="o">[</span><span class="s2">"monit"</span><span class="o">][</span><span class="s2">"source"</span><span class="o">][</span><span class="s2">"url"</span><span class="o">]</span> <span class="o">=</span> <span class="s2">"https://mmonit.com/monit/dist/monit-5.7.tar.gz"</span>
-<span class="n">default</span><span class="o">[</span><span class="s2">"monit"</span><span class="o">][</span><span class="s2">"source"</span><span class="o">][</span><span class="s2">"checksum"</span><span class="o">]</span> <span class="o">=</span> <span class="s2">"bb250ab011d805b5693972afdf95509e79bb3b390caa763275c9501f74b598a2"</span>
-<span class="n">default</span><span class="o">[</span><span class="s2">"monit"</span><span class="o">][</span><span class="s2">"source"</span><span class="o">][</span><span class="s2">"pam_support"</span><span class="o">]</span> <span class="o">=</span> <span class="kp">true</span>
-<span class="n">default</span><span class="o">[</span><span class="s2">"monit"</span><span class="o">][</span><span class="s2">"source"</span><span class="o">][</span><span class="s2">"ssl_support"</span><span class="o">]</span> <span class="o">=</span> <span class="kp">true</span>
-<span class="n">default</span><span class="o">[</span><span class="s2">"monit"</span><span class="o">][</span><span class="s2">"source"</span><span class="o">][</span><span class="s2">"large_file_support"</span><span class="o">]</span> <span class="o">=</span> <span class="kp">true</span>
-<span class="n">default</span><span class="o">[</span><span class="s2">"monit"</span><span class="o">][</span><span class="s2">"source"</span><span class="o">][</span><span class="s2">"compiler_optimized"</span><span class="o">]</span> <span class="o">=</span> <span class="kp">true</span>
-</pre></div>
+default[<span class="pl-s"><span class="pl-pds">"</span>monit<span class="pl-pds">"</span></span>][<span class="pl-s"><span class="pl-pds">"</span>source<span class="pl-pds">"</span></span>][<span class="pl-s"><span class="pl-pds">"</span>version<span class="pl-pds">"</span></span>] <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>5.7<span class="pl-pds">"</span></span>
+default[<span class="pl-s"><span class="pl-pds">"</span>monit<span class="pl-pds">"</span></span>][<span class="pl-s"><span class="pl-pds">"</span>source<span class="pl-pds">"</span></span>][<span class="pl-s"><span class="pl-pds">"</span>prefix<span class="pl-pds">"</span></span>] <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>/usr/local<span class="pl-pds">"</span></span>
+default[<span class="pl-s"><span class="pl-pds">"</span>monit<span class="pl-pds">"</span></span>][<span class="pl-s"><span class="pl-pds">"</span>source<span class="pl-pds">"</span></span>][<span class="pl-s"><span class="pl-pds">"</span>url<span class="pl-pds">"</span></span>] <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>https://mmonit.com/monit/dist/monit-5.7.tar.gz<span class="pl-pds">"</span></span>
+default[<span class="pl-s"><span class="pl-pds">"</span>monit<span class="pl-pds">"</span></span>][<span class="pl-s"><span class="pl-pds">"</span>source<span class="pl-pds">"</span></span>][<span class="pl-s"><span class="pl-pds">"</span>checksum<span class="pl-pds">"</span></span>] <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>bb250ab011d805b5693972afdf95509e79bb3b390caa763275c9501f74b598a2<span class="pl-pds">"</span></span>
+default[<span class="pl-s"><span class="pl-pds">"</span>monit<span class="pl-pds">"</span></span>][<span class="pl-s"><span class="pl-pds">"</span>source<span class="pl-pds">"</span></span>][<span class="pl-s"><span class="pl-pds">"</span>pam_support<span class="pl-pds">"</span></span>] <span class="pl-k">=</span> <span class="pl-c1">true</span>
+default[<span class="pl-s"><span class="pl-pds">"</span>monit<span class="pl-pds">"</span></span>][<span class="pl-s"><span class="pl-pds">"</span>source<span class="pl-pds">"</span></span>][<span class="pl-s"><span class="pl-pds">"</span>ssl_support<span class="pl-pds">"</span></span>] <span class="pl-k">=</span> <span class="pl-c1">true</span>
+default[<span class="pl-s"><span class="pl-pds">"</span>monit<span class="pl-pds">"</span></span>][<span class="pl-s"><span class="pl-pds">"</span>source<span class="pl-pds">"</span></span>][<span class="pl-s"><span class="pl-pds">"</span>large_file_support<span class="pl-pds">"</span></span>] <span class="pl-k">=</span> <span class="pl-c1">true</span>
+default[<span class="pl-s"><span class="pl-pds">"</span>monit<span class="pl-pds">"</span></span>][<span class="pl-s"><span class="pl-pds">"</span>source<span class="pl-pds">"</span></span>][<span class="pl-s"><span class="pl-pds">"</span>compiler_optimized<span class="pl-pds">"</span></span>] <span class="pl-k">=</span> <span class="pl-c1">true</span></pre></div>
 
 <h2>
-<a name="contributors" class="anchor" href="#contributors"><span class="octicon octicon-link"></span></a>Contributors</h2>
+<a id="contributors" class="anchor" href="#contributors" aria-hidden="true"><span class="octicon octicon-link"></span></a>Contributors</h2>
 
 <p>Many thanks go to the following <a href="https://github.com/phlipper/chef-monit/graphs/contributors">contributors</a> who have helped to make this cookbook even better:</p>
 
@@ -322,8 +326,10 @@
 <li>better ssh support for Amazon Linux</li>
 </ul>
 </li>
-</ul><h2>
-<a name="contributing" class="anchor" href="#contributing"><span class="octicon octicon-link"></span></a>Contributing</h2>
+</ul>
+
+<h2>
+<a id="contributing" class="anchor" href="#contributing" aria-hidden="true"><span class="octicon octicon-link"></span></a>Contributing</h2>
 
 <ol>
 <li>Fork it</li>
@@ -331,24 +337,20 @@
 <li>Commit your changes (<code>git commit -am 'Added some feature'</code>)</li>
 <li>Push to the branch (<code>git push origin my-new-feature</code>)</li>
 <li>Create new Pull Request</li>
-</ol><h2>
-<a name="license" class="anchor" href="#license"><span class="octicon octicon-link"></span></a>License</h2>
+</ol>
+
+<h2>
+<a id="license" class="anchor" href="#license" aria-hidden="true"><span class="octicon octicon-link"></span></a>License</h2>
 
 <p><strong>chef-monit</strong></p>
 
 <ul>
-<li>Freely distributable and licensed under the <a href="http://phlipper.mit-license.org/2011-2014/license.html">MIT license</a>.</li>
-<li>Copyright (c) 2011-2014 Phil Cohen (<a href="mailto:github@phlippers.net">github@phlippers.net</a>) <a href="http://coderwall.com/phlipper"><img src="http://api.coderwall.com/phlipper/endorsecount.png" alt="endorse"></a>  <a href="https://www.gittip.com/phlipper/"><img src="http://img.shields.io/gittip/phlipper.png" alt="Gittip"></a>
-</li>
-<li><a href="http://phlippers.net/">http://phlippers.net/</a></li>
-</ul><p><a href="https://bitdeli.com/free" title="Bitdeli Badge"><img src="https://d2weczhvl823v0.cloudfront.net/phlipper/chef-monit/trend.png" alt="Bitdeli Badge"></a></p>
+<li>Freely distributable and licensed under the MIT license</li>
+<li>Copyright (c) 2011-2014 Phil Cohen (<a href="mailto:github@phlippers.net">github@phlippers.net</a>)</li>
+</ul>
       </section>
     </div>
-    <footer>
-      <p>Project maintained by <a href="https://github.com/phlipper">phlipper</a></p>
-      <p>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></p>
-    </footer>
-    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+
               <script type="text/javascript">
             var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
             document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
